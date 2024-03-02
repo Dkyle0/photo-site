@@ -1,0 +1,64 @@
+.main {
+	font-family: 'Overpass-Black', sans-serif;
+	src:
+		local('Overpass-Black'),
+		url('../fonts/Overpass/Overpass-VariableFont_wght.ttf') format('truetype');
+	font-size: 2em;
+	font-weight: 200;
+	color: white;
+}
+
+.mainText {
+	text-align: center;
+}
+
+.secondText {
+	text-align: center;
+	margin-top: 30%;
+}
+
+.center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5625em 6.25em;
+	min-height: 6.8em;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 100%;
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.backImg {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	max-width: 100%;
+	height: auto;
+}
+
+/* @media (max-width: 768px) {
+	.header,
+	.footer {
+		padding: 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		padding: 10px;
+	}
+} */
