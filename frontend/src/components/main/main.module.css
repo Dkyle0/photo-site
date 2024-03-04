@@ -1,20 +1,52 @@
-.main {
-	font-family: 'Overpass-Black', sans-serif;
-	src:
-		local('Overpass-Black'),
-		url('../fonts/Overpass/Overpass-VariableFont_wght.ttf') format('truetype');
-	font-size: 2em;
+@font-face {
+	font-family: Overpass-name;
+	src: url(../../fonts/Overpass/Overpass-ExtraLight.ttf);
 	font-weight: 200;
+}
+
+@font-face {
+	font-family: Rosarivo-second;
+	src: url(../../fonts/Rosarivo/Rosarivo-Italic.ttf);
+	font-weight: 400;
+}
+
+body {
+	overflow-x: hidden;
+	background-color: #fefefe;
+}
+
+.main {
+	font-size: 2vw;
 	color: white;
 }
 
+.container {
+	height: 100vh;
+	transform-style: preserve-3d;
+	position: absolute;
+	inset: 0;
+	will-change: transform;
+}
+
 .mainText {
+	font-family: 'Overpass-name', sans-serif;
+	font-weight: 200;
 	text-align: center;
+
+	@media (max-width: 800px) {
+		width: 100%;
+		font-size: 1em;
+	}
 }
 
 .secondText {
-	text-align: center;
-	margin-top: 30%;
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	font-family: 'Rosarivo', serif;
+	font-weight: 400;
+
+	transform: translate(-50%, -50%) translateZ(90px);
 }
 
 .center {
@@ -27,38 +59,26 @@
 	justify-content: center;
 	padding: 1.5625em 6.25em;
 	min-height: 6.8em;
+	transform: translateZ(360px);
+
+	@media (max-width: 800px) {
+		flex-wrap: wrap;
+		padding: 0;
+	}
 }
 
 .overlay {
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	max-width: 100%;
-	height: auto;
+	inset: -2vw;
+	transform: translateZ(-100px);
 	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .backImg {
+	background-image: url(../../imgs/fon.jpg);
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	max-width: 100%;
-	height: auto;
+	inset: -2vw;
+	background-size: cover;
+	background-position: center;
+	transform: translateZ(-100px);
 }
-
-/* @media (max-width: 768px) {
-	.header,
-	.footer {
-		padding: 10px;
-	}
-}
-
-@media (max-width: 480px) {
-	.container {
-		padding: 10px;
-	}
-} */

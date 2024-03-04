@@ -6,7 +6,7 @@ export function App() {
 	return (
 		<>
 			<Main />
-			<div>
+			{/* <div>
 				<h1>Портфолио</h1>
 				<div>Портрет</div>
 				<div>Городская фотография</div>
@@ -14,7 +14,7 @@ export function App() {
 			</div>
 			<div>Статьи</div>
 			<div>ЛК</div>
-			<div>Обо мне</div>
+			<div>Обо мне</div> */}
 		</>
 	);
 }
