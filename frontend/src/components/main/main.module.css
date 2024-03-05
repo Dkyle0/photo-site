@@ -12,7 +12,7 @@
 
 body {
 	overflow-x: hidden;
-	background-color: #fefefe;
+	background-color: #f0f1ed;
 }
 
 .main {
@@ -81,4 +81,11 @@ body {
 	background-size: cover;
 	background-position: center;
 	transform: translateZ(-100px);
+}
+
+.separation {
+	position: relative;
+	top: 105vh;
+	height: 2vw;
+	width: 100%;
 }

@@ -1,0 +1,20 @@
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(51, 51, 51, 0.3);
+	color: #fff;
+	padding: 0.5vw;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.date {
+	font-weight: 400;
+}
+
+.tg {
+	max-width: 1vw;
+	max-height: 1vw;
+}
