@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
-import { Main } from './components/main';
+import { Main } from './components/pages/main';
 import { Footer } from './components/footer';
 import { Route, Routes } from 'react-router-dom';
+import { Personal } from './components/pages/personal';
 
 export function App() {
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={<Main />} />
+				<Route path="/personal" element={<Personal />} />
 				<Route path="/*" element={<div> Ошибка </div>} />
 			</Routes>
 			{/* <Routes>

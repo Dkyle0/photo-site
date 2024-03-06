@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0046c972.css",
+    "main.js": "/static/js/main.3b4b8a9a.js",
+    "static/media/fon.jpg": "/static/media/fon.e090d676080944a98bb0.jpg",
+    "static/media/1.jpg": "/static/media/1.045054a3dc9932c0fb5b.jpg",
+    "static/media/2.jpg": "/static/media/2.b9168a7ce5e27ff3def4.jpg",
+    "static/media/3.jpg": "/static/media/3.b20099e6252784e122ad.jpg",
+    "static/media/Overpass-ExtraLight.ttf": "/static/media/Overpass-ExtraLight.592dc184e149ddf3055c.ttf",
+    "static/media/Rosarivo-Italic.ttf": "/static/media/Rosarivo-Italic.1d3af7134806383bcbb2.ttf",
+    "index.html": "/index.html",
+    "main.0046c972.css.map": "/static/css/main.0046c972.css.map",
+    "main.3b4b8a9a.js.map": "/static/js/main.3b4b8a9a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0046c972.css",
+    "static/js/main.3b4b8a9a.js"
+  ]
+}
