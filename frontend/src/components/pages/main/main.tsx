@@ -1,15 +1,31 @@
 import styles from './main.module.css';
-import { Menu } from '../../menu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRainEffect } from '../../hooks/rain';
-import { ActualPhoto } from './actual-photo';
+import { ActualPhoto } from '../../actual-photo';
 import { getMousPosition } from './utils';
 import { ArrowUp } from './components/arrow-up';
+import img1 from '../../../imgs/1.jpg';
+import img2 from '../../../imgs/2.jpg';
+import img3 from '../../../imgs/3.jpg';
 
 export const Main = () => {
 	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const [scroll, setScroll] = useState(0);
+	const imgs = [img1, img2, img3];
 
 	useRainEffect('rain', window.innerWidth, window.innerHeight);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setScroll(window.scrollY);
+		};
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 
 	return (
 		<>
@@ -26,14 +42,16 @@ export const Main = () => {
 					<div className={styles.overlay} />
 					<div className={styles.center}>
 						<h1 className={styles.mainText}>Konstantin Kozhevnikov</h1>
-						<Menu />
 					</div>
 					<h3 className={styles.secondText}>Photographer</h3>
 				</div>
 			</div>
 			<div className={styles.separation} />
-			<ActualPhoto />
-			<ArrowUp />
+			<div className={styles.photoBlock}>
+				<ActualPhoto imgs={imgs} />
+			</div>
+			{scroll > 150 && <ArrowUp />}
+			<div className={styles.separation} />
 		</>
 	);
 };

@@ -2,6 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const { addPhoto } = require("../controllers/photo");
+const authenticated = require("../middlewares/authenticated");
 
 const router = express.Router({ mergeParams: true });
 
@@ -19,7 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/", upload.single("photo"), async (req, res) => {
+router.post("/", authenticated, upload.single("photo"), async (req, res) => {
   try {
     await addPhoto({
       author: "Dkyle",

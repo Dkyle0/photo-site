@@ -83,6 +83,11 @@ body {
 	transform: translateZ(-100px);
 }
 
+.photoBlock {
+	position: relative;
+	top: 105vh;
+}
+
 .separation {
 	position: relative;
 	top: 105vh;

@@ -1,12 +1,26 @@
-import { useState } from 'react';
 import styles from './personal.module.css';
+import { useState } from 'react';
+import { ROLE } from '../../../constants/role';
+import { Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../actions';
+import { checkSessionRole } from '../../utils/check-session-role';
+import { Users } from './users';
 
 export const Personal = () => {
 	const [file, setFile] = useState<File | null>(null);
 	const [massage, setMassage] = useState<string | null>(null);
+	const [roleId, setRoleId] = useState<number>(checkSessionRole());
 	const [photoType, setPhotoType] = useState<
 		string | number | readonly string[] | undefined
 	>('landscape');
+	const dispatch = useDispatch();
+
+	const onLogout = () => {
+		dispatch(logout());
+		sessionStorage.removeItem('userData');
+		setRoleId(ROLE.GUEST);
+	};
 
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		if (event.target.files && event.target.files.length > 0) {
@@ -46,6 +60,11 @@ export const Personal = () => {
 		}
 	};
 
+	if (roleId === ROLE.GUEST) {
+		console.log(roleId, ROLE.GUEST);
+		return <Navigate to="/login" />;
+	}
+
 	return (
 		<>
 			<div className={styles.container}>
@@ -78,7 +97,13 @@ export const Personal = () => {
 						</button>
 					</form>
 					<h3>{massage}</h3>
+					<button className={styles.uploadBtn} onClick={onLogout}>
+						Разлогинится
+					</button>
 				</div>
+			</div>
+			<div className={styles.container}>
+				<Users />
 			</div>
 		</>
 	);

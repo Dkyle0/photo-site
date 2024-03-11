@@ -1,0 +1,22 @@
+.container {
+	display: flex;
+	align-items: center;
+	border: 1px solid rgb(150, 150, 150);
+
+	& > div {
+		display: flex;
+		padding: 0 10px;
+	}
+
+	& .login-column {
+		width: 172px;
+	}
+
+	& .registred-at-column {
+		width: 213px;
+	}
+
+	& .role-column {
+		width: auto;
+	}
+}

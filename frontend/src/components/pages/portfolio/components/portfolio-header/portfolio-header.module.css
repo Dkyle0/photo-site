@@ -1,0 +1,12 @@
+.title {
+	background-color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 16vw;
+	padding: 2vw;
+
+	@media (max-width: 800px) {
+		height: 28vw;
+	}
+}

@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: auto;
+	width: 570px;
+	font-size: 18px;
+	color: white;
+}
+
+.login,
+.registredAt {
+	min-width: 60px;
+}
