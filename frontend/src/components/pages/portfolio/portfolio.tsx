@@ -1,8 +1,8 @@
 import { ActualPhoto } from '../../actual-photo';
 import styles from './portfolio.module.css';
-import img1 from '../../../imgs/3.jpg';
-import img2 from '../../../imgs/3.jpg';
-import img3 from '../../../imgs/3.jpg';
+import img1 from '../../../imgs/portrair.jpg';
+import img2 from '../../../imgs/street.jpg';
+import img3 from '../../../imgs/landscape.jpg';
 import { PortfolioHeader } from './components/portfolio-header';
 
 export const Portfolio = () => {

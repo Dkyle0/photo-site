@@ -32,10 +32,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/:id/comments", authenticated, async (req, res) => {
-  const newComment = await addComment(req.params.id, {
-    content: req.body.content,
-    author: req.user.id,
-  });
+  const newComment = await addComment(req.params.id, { author });
 
   res.send({ data: mapComment(newComment) });
 });

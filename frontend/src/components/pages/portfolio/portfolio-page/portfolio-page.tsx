@@ -1,6 +1,7 @@
+import styles from './portfolio-page.module.css';
 import { useLocation } from 'react-router-dom';
 import { PortfolioHeader } from '../components/portfolio-header';
-import styles from './portfolio-page.module.css';
+import { Gallery } from './components/gallery';
 
 const selectTitle = (location: string) => {
 	switch (location) {
@@ -17,12 +18,13 @@ const selectTitle = (location: string) => {
 
 export const PortfolioPage = () => {
 	const location = useLocation();
-	console.log(typeof location.pathname.slice(11));
-	const title = selectTitle(location.pathname.slice(11));
+	const cuteLocation = location.pathname.slice(11);
+	const title = selectTitle(cuteLocation);
 
 	return (
 		<div className={styles.container}>
 			<PortfolioHeader title={title} />
+			<Gallery location={cuteLocation} />
 		</div>
 	);
 };

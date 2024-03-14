@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { string } = require("yup");
 
 const validTypes = ["landscape", "street", "portrait"];
 
@@ -14,7 +15,11 @@ const PhotoSchema = mongoose.Schema(
     },
     likes: {
       type: Array,
-      dafault: [],
+      default: [],
+    },
+    imageData: {
+      type: String,
+      default: "",
     },
     type: {
       type: String,

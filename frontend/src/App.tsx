@@ -11,6 +11,7 @@ import {
 import { Menu } from './components/menu';
 import { Portfolio } from './components/pages/portfolio';
 import { PortfolioPage } from './components/pages/portfolio/portfolio-page';
+import { Modal } from './components/modal';
 
 export function App() {
 	return (
@@ -27,6 +28,7 @@ export function App() {
 				<Route path="/portfolio/landscape" element={<PortfolioPage />} />
 				<Route path="/*" element={<div> Ошибка </div>} />
 			</Routes>
+			<Modal />
 		</>
 	);
 }

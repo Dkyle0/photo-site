@@ -5,8 +5,37 @@
 	align-items: center;
 	height: 16vw;
 	padding: 2vw;
+	margin-top: -7vh;
 
 	@media (max-width: 800px) {
 		height: 28vw;
 	}
+}
+.backBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: 7vh;
+	left: 7vh;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 6vh;
+	height: 6vh;
+	color: white;
+	border: none;
+	font-weight: 555;
+	font-size: 2.5vw;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	transform: translateY(-50%);
+}
+
+.backBtn::before {
+	content: 'ᐸ';
+}
+
+.backBtn:hover {
+	background-color: #f1f1f1;
+	color: black;
 }
