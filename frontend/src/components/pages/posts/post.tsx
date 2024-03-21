@@ -1,18 +1,18 @@
-import styles from './post.module.css';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PostContent } from './components';
 import { useMatch, useParams } from 'react-router-dom';
-import { PostForm } from './post-form/post-form';
-import { Loader } from '../../loader';
-import { RESET_POST_DATA, loadPostAsync } from '../../actions';
-import { selectPost } from '../../selectors';
-import { checkSessionRole } from '../../utils/check-session-role';
-import { checkAccess } from '../../utils';
 import { ROLE } from '../../../constants/role';
-import { IPostData, IPostError } from '../../types/d';
+import { RESET_POST_DATA, loadPostAsync } from '../../actions';
 import { Header } from '../../header';
+import { Loader } from '../../loader';
+import { selectPost } from '../../selectors';
+import { IPostData, IPostError } from '../../types/d';
+import { checkAccess } from '../../utils';
+import { checkSessionRole } from '../../utils/check-session-role';
 import { Error } from '../error';
+import { PostContent } from './components';
+import { PostForm } from './post-form/post-form';
+import styles from './post.module.css';
 
 export const Post = () => {
 	let [error, setError] = useState<string | null>(null);
