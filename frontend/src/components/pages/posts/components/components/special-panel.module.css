@@ -1,0 +1,22 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0;
+	font-size: 18px;
+}
+
+.publishedAt {
+	display: flex;
+	height: 44px;
+	align-items: center;
+}
+
+.buttons {
+	display: flex;
+}
+
+.icon {
+	width: 8vh;
+	height: 8vh;
+	cursor: pointer;
+}

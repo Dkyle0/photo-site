@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	justify-content: center;
+	margin: 0 0 20px;
+	padding: 0 1.3vh;
+}
+
+button {
+	margin: 0 5px;
+}
+
+button:disabled {
+	background-color: #ccc;
+	color: #666;
+	cursor: not-allowed !important;
+}
+
+.current {
+	color: black;
+	font-size: 18px;
+	font-weight: 500;
+	margin: 0 5px;
+	width: 100%;
+	height: 32px;
+	line-height: 5vh;
+	text-align: center;
+}

@@ -1,4 +1,3 @@
-import styles from './modal.module.css';
 import { useSelector } from 'react-redux';
 import {
 	selectModalIsOpen,
@@ -6,6 +5,7 @@ import {
 	selectModalonCencel,
 	selectModalonConfirm,
 } from '../selectors';
+import styles from './modal.module.css';
 
 export const Modal = () => {
 	const text = useSelector(selectModalText);

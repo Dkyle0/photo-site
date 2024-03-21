@@ -1,6 +1,6 @@
-import styles from './menu.module.css';
-import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import styles from './menu.module.css';
 
 const menuItems = [
 	{ path: '/', name: 'Главная' },

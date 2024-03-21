@@ -20,12 +20,6 @@ const PostSchema = mongoose.Schema(
       type: String,
       dafault: ROLES.USER,
     },
-    comments: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-      },
-    ],
   },
   { timestamps: true }
 );

@@ -1,12 +1,13 @@
-import styles from './main.module.css';
 import { useEffect, useState } from 'react';
-import { useRainEffect } from '../../hooks/rain';
-import { ActualPhoto } from '../../actual-photo';
-import { getMousPosition } from './utils';
-import { ArrowUp } from './components/arrow-up';
 import img1 from '../../../imgs/1.jpg';
 import img2 from '../../../imgs/2.jpg';
 import img3 from '../../../imgs/3.jpg';
+import { ActualPhoto } from '../../actual-photo';
+import { useRainEffect } from '../../hooks/rain';
+import { ArrowUp } from './components/arrow-up';
+import { PortfolioBigButton } from './components/portfolio-big-button';
+import styles from './main.module.css';
+import { getMousPosition } from './utils';
 
 export const Main = () => {
 	const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -52,6 +53,7 @@ export const Main = () => {
 			</div>
 			{scroll > 150 && <ArrowUp />}
 			<div className={styles.separation} />
+			<PortfolioBigButton />
 		</>
 	);
 };

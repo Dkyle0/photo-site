@@ -13,12 +13,18 @@
 	padding: 20px;
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
-	& .registration {
-		margin-top: 10px;
-	}
+.container .registration {
+	margin-top: 10px;
+}
 
-	& h2 {
+.container button {
+	margin: 2vh 0;
+}
+
+.container {
+	h2 {
 		color: #fff;
 		text-align: center;
 		margin-bottom: 20px;
@@ -65,4 +71,7 @@ a {
 
 .buttons {
 	padding-top: 5vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

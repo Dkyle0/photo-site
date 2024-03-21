@@ -1,7 +1,8 @@
-import { Action } from 'redux';
+import { AnyAction, Reducer } from 'redux';
 import { ACTION_TYPE } from '../../actions';
+import { PhotoState } from '../../types/d';
 
-const initPhotoState = {
+const initPhotoState: PhotoState = {
 	id: '',
 	author: '',
 	type: '',
@@ -10,16 +11,8 @@ const initPhotoState = {
 	createdAt: '',
 };
 
-interface PhotoAction extends Action {
-	type: string;
-	payload: any; 
-  }
-
-
-export function photoReducer(state = initPhotoState, action:PhotoAction) {
+export const photoReducer:Reducer<PhotoState, AnyAction> = (state: PhotoState = initPhotoState, action) => {
 	switch (action.type) {
-		case ACTION_TYPE.ADD_LIKE:
-			return { ...state, comments: [...state.likes, action.payload] };
 		case ACTION_TYPE.SET_PHOTO_DATA:
 			return { ...state, ...action.payload };
 		case ACTION_TYPE.RESET_PHOTO_DATA:

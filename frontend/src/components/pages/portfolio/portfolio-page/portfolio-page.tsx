@@ -1,7 +1,7 @@
-import styles from './portfolio-page.module.css';
 import { useLocation } from 'react-router-dom';
-import { PortfolioHeader } from '../components/portfolio-header';
-import { Gallery } from './components/gallery';
+import { Gallery } from '../../../gallery';
+import { Header } from '../../../header';
+import styles from './portfolio-page.module.css';
 
 const selectTitle = (location: string) => {
 	switch (location) {
@@ -23,7 +23,7 @@ export const PortfolioPage = () => {
 
 	return (
 		<div className={styles.container}>
-			<PortfolioHeader title={title} />
+			<Header title={title} />
 			<Gallery location={cuteLocation} />
 		</div>
 	);

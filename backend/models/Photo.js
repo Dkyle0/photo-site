@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { string } = require("yup");
 
 const validTypes = ["landscape", "street", "portrait"];
 

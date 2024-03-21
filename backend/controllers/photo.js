@@ -3,21 +3,11 @@ const fs = require("fs").promises;
 
 async function addPhoto(photo) {
   const newPhoto = await Photo.create(photo);
-  // await newPhoto.populate({
-  //   populate: "author",
-  // });
+
   return newPhoto;
 }
 
-async function getPhotos(type = "", limit = 6, page = 1) {
-  const [photos, count] = await Promise.all([
-    Photo.find({ type })
-      .limit(limit)
-      .skip((page - 1) * limit)
-      .sort({ createdAt: -1 }),
-    Photo.countDocuments({ type }),
-  ]);
-
+async function getPhotoData(photos) {
   await Promise.all(
     photos.map(async (photo) => {
       try {
@@ -31,6 +21,39 @@ async function getPhotos(type = "", limit = 6, page = 1) {
       }
     })
   );
+}
+
+async function getLikedPhotos(id, limit = 6, page = 1) {
+  try {
+    const photos = await Photo.find({ likes: id })
+      .limit(limit)
+      .skip((page - 1) * limit)
+      .sort({ createdAt: -1 });
+
+    const count = await Photo.countDocuments({ likes: id });
+
+    await getPhotoData(photos);
+
+    return {
+      photos,
+      lastPage: Math.ceil(count / limit),
+    };
+  } catch (error) {
+    console.error("Ошибка при получении фотографий:", error);
+    throw error;
+  }
+}
+
+async function getPhotos(type = "", limit = 6, page = 1) {
+  const [photos, count] = await Promise.all([
+    Photo.find({ type })
+      .limit(limit)
+      .skip((page - 1) * limit)
+      .sort({ createdAt: -1 }),
+    Photo.countDocuments({ type }),
+  ]);
+
+  await getPhotoData(photos);
 
   return {
     photos,
@@ -60,48 +83,11 @@ async function addLike(photoId, { add, author }) {
     await Photo.findByIdAndUpdate(photoId, { $pull: { likes: author } });
   }
 }
-// async function editPost(id, post) {
-//   const newPost = await Post.findByIdAndUpdate(id, post, {
-//     returnDocument: "after",
-//   });
-
-//   await newPost.populate({
-//     path: "comments",
-//     populate: "author",
-//   });
-
-//   return newPost;
-// }
-
-// function deletePost(id) {
-//   return Post.deleteOne({ _id: id });
-// }
-
-// function getPost(id) {
-//   return Post.findById(id).populate({
-//     path: "comments",
-//     populate: "author",
-//   });
-// }
-
-// async function getPosts(search = "", limit = 7, page = 1) {
-//   const [posts, count] = await Promise.all([
-//     Post.find({ title: { $regex: search, $options: "i" } })
-//       .limit(limit)
-//       .skip((page - 1) * limit)
-//       .sort({ createdAt: -1 }),
-//     Post.countDocuments({ title: { $regex: search, $options: "i" } }),
-//   ]);
-
-//   return {
-//     posts,
-//     lastPage: Math.ceil(count / limit),
-//   };
-// }
 
 module.exports = {
   addPhoto,
   getPhotos,
+  getLikedPhotos,
   deletePhoto,
   addLike,
 };

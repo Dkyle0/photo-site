@@ -2,21 +2,12 @@ const Post = require("../models/Posts");
 
 async function addPost(post) {
   const newPost = await Post.create(post);
-  await newPost.populate({
-    path: "comments",
-    populate: "author",
-  });
   return newPost;
 }
 
 async function editPost(id, post) {
   const newPost = await Post.findByIdAndUpdate(id, post, {
     returnDocument: "after",
-  });
-
-  await newPost.populate({
-    path: "comments",
-    populate: "author",
   });
 
   return newPost;
@@ -27,10 +18,7 @@ function deletePost(id) {
 }
 
 function getPost(id) {
-  return Post.findById(id).populate({
-    path: "comments",
-    populate: "author",
-  });
+  return Post.findById(id);
 }
 
 async function getPosts(search = "", limit = 7, page = 1) {

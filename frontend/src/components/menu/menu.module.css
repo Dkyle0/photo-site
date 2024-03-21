@@ -58,7 +58,7 @@
 
 a {
 	position: relative;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.5);
 	color: white;
 	text-align: center;
 	padding: 1.5vw;
@@ -70,7 +70,7 @@ a {
 }
 
 .drop_content a:last-child {
-	margin-bottom: 0.1vh;
+	margin-bottom: 0vh;
 }
 
 .drop_content a:hover {

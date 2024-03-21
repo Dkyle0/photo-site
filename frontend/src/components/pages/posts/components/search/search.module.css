@@ -1,0 +1,16 @@
+.container {
+	display: flex;
+	position: relative;
+	margin: 40px auto 0;
+	height: 40px;
+	width: 320px;
+}
+.container > input {
+	padding: 10px 32px 10px 10px;
+}
+
+.container & div {
+	position: absolute;
+	right: 9px;
+	top: 7px;
+}

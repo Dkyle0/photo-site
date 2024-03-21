@@ -1,9 +1,9 @@
-import { ActualPhoto } from '../../actual-photo';
-import styles from './portfolio.module.css';
+import img3 from '../../../imgs/landscape.jpg';
 import img1 from '../../../imgs/portrair.jpg';
 import img2 from '../../../imgs/street.jpg';
-import img3 from '../../../imgs/landscape.jpg';
-import { PortfolioHeader } from './components/portfolio-header';
+import { ActualPhoto } from '../../actual-photo';
+import { Header } from '../../header';
+import styles from './portfolio.module.css';
 
 export const Portfolio = () => {
 	const imgs = [img1, img2, img3];
@@ -13,7 +13,7 @@ export const Portfolio = () => {
 
 	return (
 		<div className={styles.container}>
-			<PortfolioHeader title={'Портфолио'} />
+			<Header title={'Портфолио'} />
 			<div className={styles.photoBlock}>
 				<ActualPhoto imgs={imgs} titles={titles} paths={paths} />
 			</div>

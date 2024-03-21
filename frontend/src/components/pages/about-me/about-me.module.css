@@ -1,0 +1,32 @@
+.container {
+	color: white;
+}
+
+.main {
+	max-width: 120vh;
+	margin: 3% auto;
+}
+
+.content {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-around;
+	max-width: 1200px;
+	margin: auto;
+}
+
+.text {
+	color: black;
+	font-size: 3vh;
+	font-weight: 500;
+	width: 50%;
+	padding: 20px;
+	white-space: pre-line;
+}
+
+.image {
+	width: 40%;
+	max-width: 500px;
+	object-fit: cover;
+	padding: 4vh;
+}

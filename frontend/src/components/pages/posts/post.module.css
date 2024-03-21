@@ -1,0 +1,9 @@
+.container {
+	margin-bottom: 40px;
+	padding: 0px 80px;
+}
+
+.error {
+	text-align: center;
+	height: 51vh;
+}

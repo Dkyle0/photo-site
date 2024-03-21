@@ -6,11 +6,9 @@ const {
   editPost,
   deletePost,
 } = require("../controllers/post");
-const { addComment, deleteComment } = require("../controllers/comment");
 const authenticated = require("../middlewares/authenticated");
 const hasRole = require("../middlewares/hasRole");
 const mapPost = require("../helpers/mapPost");
-const mapComment = require("../helpers/mapComment");
 const ROLES = require("../constants/roles");
 
 const router = express.Router({ mergeParams: true });
@@ -26,27 +24,14 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  const post = await getPost(req.params.id);
+  try {
+    const post = await getPost(req.params.id);
 
-  res.send({ data: mapPost(post) });
-});
-
-router.post("/:id/comments", authenticated, async (req, res) => {
-  const newComment = await addComment(req.params.id, { author });
-
-  res.send({ data: mapComment(newComment) });
-});
-
-router.delete(
-  "/:postId/comments/:commentId",
-  authenticated,
-  hasRole([ROLES.ADMIN, ROLES.MODERATOR]),
-  async (req, res) => {
-    await deleteComment(req.params.postId, req.params.commentId);
-
-    res.send({ error: null });
+    res.send({ data: mapPost(post) });
+  } catch (e) {
+    res.send({ error: e });
   }
-);
+});
 
 router.post("/", authenticated, hasRole([ROLES.ADMIN]), async (req, res) => {
   const newPost = await addPost({

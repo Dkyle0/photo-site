@@ -1,13 +1,13 @@
-import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { Navigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../../actions';
-import { selectUserRole } from '../../selectors';
+import { Navigate } from 'react-router-dom';
+import * as yup from 'yup';
 import { ROLE } from '../../../constants/role';
+import { setUser } from '../../actions';
 import { useResetForm } from '../../hooks';
+import { selectUserRole } from '../../selectors';
 import { request } from '../../utils';
 import styles from './authorization.module.css';
 

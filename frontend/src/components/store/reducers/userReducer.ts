@@ -1,21 +1,16 @@
+import { AnyAction, Reducer } from 'redux';
 import { ROLE } from '../../../constants/role';
 import { ACTION_TYPE } from '../../actions';
-import { Action } from 'redux';
+import { UserState } from '../../types/d';
 
-
-const initUserState = {
+const initUserState:UserState = {
 	id: null,
 	login: null,
 	roleId: ROLE.GUEST,
 	session: null,
 };
 
-interface UserAction extends Action {
-	type: string;
-	payload: any; 
-  }
-
-export function userReducer(state = initUserState, action: UserAction) {
+ export const userReducer: Reducer<UserState, AnyAction> = (state = initUserState, action) => {
 	switch (action.type) {
 		case ACTION_TYPE.SET_USER:
 			return { ...state, ...action.payload };

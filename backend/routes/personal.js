@@ -28,7 +28,6 @@ router.post("/", authenticated, upload.single("photo"), async (req, res) => {
       type: req.body.type || "portrait",
     });
 
-    console.log(req.file);
     res.send({
       error: null,
       photo: "Файл успешно загружен " + req.file.originalname,
