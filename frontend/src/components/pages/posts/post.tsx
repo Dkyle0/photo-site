@@ -45,16 +45,16 @@ export const Post = () => {
 				setisLoading(false),
 			);
 		}
-	}, [params.id, dispatch, isCreating]);
+
+		error ? setError('Cтатья с таким id отсутствует') : setError(null);
+		(isEditing || isCreating) && !isAdmin && !error
+			? setError('Ошибка доступа')
+			: setError(null);
+	}, [params.id, dispatch, isCreating, error, isEditing, isAdmin]);
 
 	if (isLoading) {
 		return <Loader />;
 	}
-
-	error ? (error = 'Cтатья с таким id отсутствует') : (error = null);
-	(isEditing || isCreating) && !isAdmin && !error
-		? (error = 'Ошибка доступа')
-		: (error = null);
 
 	const SpecificPostPage =
 		isEditing || isCreating ? (
