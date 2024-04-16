@@ -2,14 +2,14 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0.3vw;
-	min-height: 60vh;
+	min-height: 65vh;
 }
 
 .galleryItem {
-	width: 100%;
 	margin: 10px;
 	overflow: hidden;
 	position: relative;
+	height: fit-content;
 }
 
 .photo {

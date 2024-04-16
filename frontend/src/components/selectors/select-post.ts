@@ -1,3 +1,3 @@
-import { IPostData } from "../types/d";
+import { PostState } from "../types/d";
 
-export const selectPost = ({ post }: {post: IPostData}) => post;
+export const selectPost = ({ post }: {post: PostState}) => post;

@@ -1,11 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { ROLE } from '../../../../../constants/role';
 import dellIcon from '../../../../../imgs/icons/del-file-svgrepo-com.svg';
-import { CLOSE_MODAL, openModal, removePostAsync } from '../../../../actions';
 import { checkAccess } from '../../../../utils';
 import { checkSessionRole } from '../../../../utils/check-session-role';
 import styles from './special-panel.module.css';
+import { openModal } from '../../../../store/reducers';
 
 interface ISpecialPanel {
 	id: string;
@@ -16,21 +15,15 @@ interface ISpecialPanel {
 
 export const SpecialPanel = ({ id, publishedAt, EditButton, onEdit }: ISpecialPanel) => {
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
+
 	const userRole = checkSessionRole();
 
 	const onPostRemove = (id: string) => {
 		dispatch(
 			openModal({
 				text: 'Удалить статью?',
-				onConfirm: () => {
-					// @ts-ignore
-					dispatch(removePostAsync(id)).then(() => {
-						navigate('/');
-					});
-					dispatch(CLOSE_MODAL);
-				},
-				onCancel: () => dispatch(CLOSE_MODAL),
+				type: 'post',
+				id: id,
 			}),
 		);
 	};

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { IPostData } from '../../../../types/d';
+import { PostState } from '../../../../types/d';
 import styles from './post-card.module.css';
 
-type IPostCard = Omit<IPostData, 'content'>;
+type IPostCard = Omit<PostState, 'content'>;
 
 export const PostCard = ({ id, title, imageUrl, publishedAt }: IPostCard) => {
 	return (

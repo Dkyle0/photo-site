@@ -7,6 +7,9 @@ import { request } from '../utils';
 import { FullScreenView } from './components/full-screen-view';
 import { UsersButtons } from './components/users-buttons/users-buttons';
 import styles from './gallery.module.css';
+import { selectNeedReload } from '../selectors/select-need-reload';
+import { useDispatch, useSelector } from 'react-redux';
+import { stopReload } from '../store/reducers';
 
 export const Gallery = ({ location }: { location: string }) => {
 	const [getedImages, setGetedImages] = useState<ImageType[]>([]);
@@ -14,6 +17,8 @@ export const Gallery = ({ location }: { location: string }) => {
 	const [isLoading, setisLoading] = useState(true);
 	const [lastPage, setLastPage] = useState(1);
 	const [fullscreenImageUrl, setFullscreenImageUrl] = useState<string | null>(null);
+	const needReload = useSelector(selectNeedReload);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		request(
@@ -23,7 +28,13 @@ export const Gallery = ({ location }: { location: string }) => {
 			setLastPage(lastPage ? lastPage : undefined);
 			setisLoading(false);
 		});
-	}, [page, location]);
+	}, [page, location, needReload]);
+
+	useEffect(() => {
+		if (needReload) {
+			dispatch(stopReload());
+		}
+	}, [needReload, dispatch]);
 
 	const openFullscreen = (imageUrl: string) => {
 		setFullscreenImageUrl(imageUrl);

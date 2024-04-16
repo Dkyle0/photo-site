@@ -1,3 +1,3 @@
-import { IApp } from "../types/d";
+import { AppState } from "../types/d";
 
-export const selectModalIsOpen = ({ app} :{app: IApp}) => app.modal.isOpen;
+export const selectModalIsOpen = ({ app} :{app: AppState}) => app.modal.isOpen;

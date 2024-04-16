@@ -8,7 +8,7 @@ interface IUserRow {
 	login: string;
 	registredAt: string;
 	userRoleId: string;
-	roles: { id: string; name: string }[]; // Обратите внимание на это изменение
+	roles: { id: string; name: string }[];
 	onUserRemove: MouseEventHandler<HTMLDivElement>;
 }
 

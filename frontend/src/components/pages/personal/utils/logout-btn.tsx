@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { ROLE } from '../../../../constants/role';
 import profileIcon from '../../../../imgs/icons/user-svgrepo-com.svg';
-import { logout } from '../../../actions';
 import styles from './logout-btn.module.css';
+import { userLogout } from '../../../store/reducers';
 
 export const LogoutBtn = ({
 	setRoleId,
@@ -12,7 +12,7 @@ export const LogoutBtn = ({
 	const dispatch = useDispatch();
 
 	const onLogout = () => {
-		dispatch(logout());
+		dispatch(userLogout());
 		sessionStorage.removeItem('userData');
 		setRoleId(ROLE.GUEST);
 	};

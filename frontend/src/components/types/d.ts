@@ -1,4 +1,4 @@
-import { Action, compose } from 'redux';
+import { compose } from 'redux';
 
 
 declare global {
@@ -16,7 +16,7 @@ export type ImageType = {
 	imageData: string;
 };
 
-export interface IPostData {
+export interface PostState {
 	id?: string;
 	title: string;
 	imageUrl: string;
@@ -24,15 +24,16 @@ export interface IPostData {
 	publishedAt?: string;
 }
 
+export interface PostsState {
+	posts: PostState[];
+	filtredPosts: PostState[];
+}
+
 export interface UserState {
 	id: string | null;
 	login: string | null;
 	roleId: number;
 	session: string | null;
-}
-  
-export interface IPostError {
-	error: string;
 }
 
 export interface PhotoState {
@@ -44,28 +45,28 @@ export interface PhotoState {
 	createdAt: string;
 }
 
-
-export interface IApp {
+export interface ModalState {
+	isOpen?: boolean;
+	text: string;
+	type: string;
+	id: string;
+	needReload?: boolean;
+}
+export interface AppState {
 	wasLogout: boolean;
-	modal: {
-		isOpen: boolean;
-		text: string;
-		onConfirm: () => void;
-		onCancel: () => void;
-	};
+	modal: ModalState
+  }
+  
+export interface IPostError {
+	error: string;
 }
 
-export interface IAction extends Action {
-	type: string;
-	payload: any; 
-  }
-
-  export enum ACTION_TYPE {
+export enum ACTION_TYPE {
 	OPEN_MODAL = 'OPEN_MODAL',
 	CLOSE_MODAL = 'CLOSE_MODAL',
   }
   
-  export interface ModalParams {
+export interface ModalParams {
 	text: string;
 	onConfirm: () => void;
 	onCancel: () => void;

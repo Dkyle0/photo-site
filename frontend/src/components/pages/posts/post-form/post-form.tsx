@@ -3,14 +3,14 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import saveBtn from '../../../../imgs/icons/file-svgrepo-com.svg';
 import { savePostAsync } from '../../../actions';
-import { IPostData } from '../../../types/d';
+import { PostState } from '../../../types/d';
 import { SpecialPanel } from '../components/components/special-panel';
 import styles from './post-form.module.css';
 import { sanitizeContent } from './utils/sanitize-content';
 
 const EditButton = () => <img className={styles.icon} src={saveBtn} alt="Save button" />;
 
-export const PostForm = ({ id, title, imageUrl, content, publishedAt }: IPostData) => {
+export const PostForm = ({ id, title, imageUrl, content, publishedAt }: PostState) => {
 	const [imageField, setImageField] = useState(imageUrl);
 	const [titleField, setTitleField] = useState(title);
 	const contentRef = useRef<HTMLDivElement>(null);
@@ -33,13 +33,13 @@ export const PostForm = ({ id, title, imageUrl, content, publishedAt }: IPostDat
 			? sanitizeContent(contentRef.current.innerHTML)
 			: '';
 
-		const newPostData: IPostData = {
+		const newPostData: PostState = {
 			imageUrl: imageField || '',
 			title: titleField || '',
 			content: newContent || '',
 		};
 		// @ts-ignore
-		dispatch(savePostAsync(id, newPostData)).then((updatedPost: IPostData) => {
+		dispatch(savePostAsync(id, newPostData)).then((updatedPost: PostState) => {
 			navigate(`/post/${updatedPost.id}`);
 		});
 	};

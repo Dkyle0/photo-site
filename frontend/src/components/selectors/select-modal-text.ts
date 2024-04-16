@@ -1,3 +1,3 @@
-import { IApp } from "../types/d";
+import { AppState } from "../types/d";
 
-export const selectModalText = ({ app }:{app: IApp}) => app.modal.text;
+export const selectModalText = ({ app }:{app: AppState}) => app.modal.text;

@@ -1,6 +1,5 @@
-import { AnyAction, Reducer } from 'redux';
-import { ACTION_TYPE } from '../../actions';
 import { PhotoState } from '../../types/d';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initPhotoState: PhotoState = {
 	id: '',
@@ -11,13 +10,17 @@ const initPhotoState: PhotoState = {
 	createdAt: '',
 };
 
-export const photoReducer:Reducer<PhotoState, AnyAction> = (state: PhotoState = initPhotoState, action) => {
-	switch (action.type) {
-		case ACTION_TYPE.SET_PHOTO_DATA:
-			return { ...state, ...action.payload };
-		case ACTION_TYPE.RESET_PHOTO_DATA:
-			return initPhotoState;
-		default:
-			return state;
-	}
-}
+export const photoSlice = createSlice({
+	name: 'photo',
+	initialState: initPhotoState,
+	reducers: {
+	  setPhotoData(state: PhotoState, action: PayloadAction<object>) {
+		return { ...state, ...action.payload };
+	  },
+	  resetPhotoData(state: PhotoState) {
+		return initPhotoState;
+	  },
+	},
+  });
+  
+  export const { setPhotoData, resetPhotoData } = photoSlice.actions;

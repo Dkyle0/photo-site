@@ -1,6 +1,5 @@
-import { AnyAction, Reducer } from 'redux';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ROLE } from '../../../constants/role';
-import { ACTION_TYPE } from '../../actions';
 import { UserState } from '../../types/d';
 
 const initUserState:UserState = {
@@ -10,13 +9,17 @@ const initUserState:UserState = {
 	session: null,
 };
 
- export const userReducer: Reducer<UserState, AnyAction> = (state = initUserState, action) => {
-	switch (action.type) {
-		case ACTION_TYPE.SET_USER:
-			return { ...state, ...action.payload };
-		case ACTION_TYPE.LOGOUT:
-			return initUserState;
-		default:
-			return state;
-	}
-}
+export const userSlice = createSlice({
+	name: 'user',
+	initialState: initUserState,
+	reducers: {
+	  setUser(state: UserState, action: PayloadAction<object>) {
+		return { ...state, ...action.payload };
+	  },
+	  userLogout(state: UserState) {
+		return initUserState;
+	  },
+	},
+  });
+  
+  export const { setUser, userLogout } = userSlice.actions;

@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import editIcon from '../../../../imgs/icons/add-file-svgrepo-com.svg';
-import { IPostData } from '../../../types/d';
+import { PostState } from '../../../types/d';
 import { SpecialPanel } from './components/special-panel';
 import styles from './post-content.module.css';
 
 const EditButton = () => <img className={styles.icon} src={editIcon} alt="Edit Icon" />;
 
-export const PostContent = ({ id, title, imageUrl, content, publishedAt }: IPostData) => {
+export const PostContent = ({ id, title, imageUrl, content, publishedAt }: PostState) => {
 	const navigate = useNavigate();
 	const onEdit = () => navigate(`/post/${id}/edit`);
 

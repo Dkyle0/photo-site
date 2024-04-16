@@ -3,11 +3,12 @@ import { ROLE } from '../../../../constants/role';
 import dellIcon from '../../../../imgs/icons/dell-square-svgrepo-com.svg';
 import likeSlimIcon from '../../../../imgs/icons/favorite-off-svgrepo-com.svg';
 import likeFullIcon from '../../../../imgs/icons/favorite-svgrepo-com.svg';
-import { CLOSE_MODAL, addLikeAsync, openModal, removePhotoAsync } from '../../../actions';
+import { addLikeAsync } from '../../../actions';
 import { ImageType } from '../../../types/d';
 import { checkAccess, isLiked } from '../../../utils';
 import { checkSessionRole } from '../../../utils/check-session-role';
 import styles from './users-buttons.module.css';
+import { openModal } from '../../../store/reducers';
 
 interface IUsersButtons {
 	image: ImageType;
@@ -26,18 +27,12 @@ export const UsersButtons = ({
 	const userData: string | null = sessionStorage.getItem('userData');
 	const userId = userData ? JSON.parse(userData)?.id : '';
 
-	const onPhotoRemove = (id: string, indexToRemove: number) => {
+	const onPhotoRemove = (id: string) => {
 		dispatch(
 			openModal({
-				text: 'Удалить фотографию?',
-				onConfirm: () => {
-					removePhotoAsync(id);
-					setGetedImages(
-						getedImages.filter((_, index) => index !== indexToRemove),
-					);
-					dispatch(CLOSE_MODAL);
-				},
-				onCancel: () => dispatch(CLOSE_MODAL),
+				text: 'Удалить статью?',
+				type: 'photo',
+				id: id,
 			}),
 		);
 	};
@@ -73,7 +68,7 @@ export const UsersButtons = ({
 					src={dellIcon}
 					alt={'Delete Icon'}
 					onClick={() => {
-						onPhotoRemove(image.id, indexToRemove);
+						onPhotoRemove(image.id);
 					}}
 				/>
 			)}

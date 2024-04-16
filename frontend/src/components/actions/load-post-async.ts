@@ -1,16 +1,16 @@
 import { Action, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { AppState } from '../store';
-import { IPostData, IPostError } from '../types/d';
+import { AppState } from '../types/d'; 
+import { PostState, IPostError } from '../types/d';
 import { request } from '../utils';
-import { setPostDataAsync } from './set-post-data';
+import { setPostData } from '../store/reducers';
 
-export const loadPostAsync = (postId: string): ThunkAction<Promise<IPostData | IPostError>, AppState, unknown, Action> => (
+export const loadPostAsync = (postId: string): ThunkAction<Promise<PostState | IPostError>, AppState, unknown, Action> => (
     dispatch: Dispatch
-): Promise<IPostData | IPostError> =>
+): Promise<PostState | IPostError> =>
     request(`/posts/${postId}`).then((postData) => {
         if (postData.data) {
-            dispatch(setPostDataAsync(postData.data));
+            dispatch(setPostData(postData.data));
         }
 
         return postData;

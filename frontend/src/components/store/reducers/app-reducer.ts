@@ -1,51 +1,40 @@
-import { Action } from 'redux';
-import { ACTION_TYPE } from '../../actions';
-import { ModalParams } from '../../types/d';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppState, ModalState } from '../../types/d';
 
-
-interface AppState {
-	wasLogout: boolean;
-	modal: {
-	  isOpen: boolean;
-	  text: string;
-	  onConfirm: () => void;
-	  onCancel: () => void;
-	};
-  }
-
-  
-const initAppState:AppState  = {
-	wasLogout: false,
-	modal: {
-		isOpen: false,
-		text: '',
-		onConfirm: () => {},
-		onCancel: () => {},
-	},
+const initAppState: AppState = {
+  wasLogout: false,
+  modal: {
+    isOpen: false,
+    text: '',
+	type:'',
+	id: '',
+	needReload: false
+  },
 };
-  
-  interface AppAction extends Action {
-	type: string;
-	payload: ModalParams; 
-  }
-  
 
-  export function AppReducer(state: AppState = initAppState, action: AppAction): AppState {
-	switch (action.type) {
-	  case ACTION_TYPE.LOGOUT:
-		return { ...state, wasLogout: !state.wasLogout };
-	  case ACTION_TYPE.OPEN_MODAL:
-		return {
-		  ...state,
-		  modal: {
-			...state.modal,
-			...action.payload,
-			isOpen: true,
-		  },
-		};
-	  case ACTION_TYPE.CLOSE_MODAL:
-		return initAppState;
-	  default:
-		return state;
-	}
-  }
+export const appSlice = createSlice({
+  name: 'app',
+  initialState: initAppState,
+  reducers: {
+    logout(state: AppState, action: PayloadAction<boolean>) {
+      state.wasLogout = action.payload;
+    },
+    openModal(state: AppState, action: PayloadAction<ModalState>) {
+      state.modal.isOpen = true;
+      state.modal.text = action.payload.text;
+	  state.modal.type = action.payload.type;
+	  state.modal.id = action.payload.id;
+    },
+	startReload(state: AppState) {
+		state.modal.needReload = true;
+	},
+	stopReload(state: AppState) {
+		state.modal.needReload = false;
+	},
+    closeModal(state: AppState) {
+		return initAppState
+    },
+  },
+});
+
+export const { logout, openModal, closeModal, startReload, stopReload } = appSlice.actions;

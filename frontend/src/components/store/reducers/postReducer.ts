@@ -1,8 +1,7 @@
-import { AnyAction, Reducer } from 'redux';
-import { ACTION_TYPE } from '../../actions';
-import { IPostData } from '../../types/d';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PostState } from '../../types/d';
 
-const initPostState: IPostData = {
+const initPostState: PostState = {
 	id: '',
 	title: '',
 	imageUrl: '',
@@ -10,13 +9,17 @@ const initPostState: IPostData = {
 	publishedAt: '',
 };
 
-export const postReducer: Reducer<IPostData, AnyAction> = (state = initPostState, action) => {
-	switch (action.type) {
-		case ACTION_TYPE.SET_POST_DATA:
-			return { ...state, ...action.payload };
-		case ACTION_TYPE.RESET_POST_DATA:
-			return initPostState;
-		default:
-			return state;
-	}
-}
+export const postSlice = createSlice({
+	name: 'post',
+	initialState: initPostState,
+	reducers: {
+	  setPostData(state: PostState, action: PayloadAction<object>) {
+		return { ...state, ...action.payload };
+	  },
+	  resetPostData(state: PostState) {
+		return initPostState;
+	  },
+	},
+  });
+  
+  export const { setPostData, resetPostData } = postSlice.actions;

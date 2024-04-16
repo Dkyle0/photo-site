@@ -1,12 +1,19 @@
-import { IAction } from "../../types/d";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PostsState, PostState } from '../../types/d';
 
-const initPostsState = {};
+const initPostsState: PostsState = {
+	posts: [],
+	filtredPosts: []
+};
 
-export function postsReducer(state = initPostsState, action: IAction) {
-	switch (action.type) {
-		case 'initTodos':
-			return { ...state, posts: action.payload, filtredPosts: action.payload };
-		default:
-			return state;
-	}
-}
+export const postsSlice = createSlice({
+	name: 'posts',
+	initialState: initPostsState,
+	reducers: {
+	  setPostsData(state: PostsState, action: PayloadAction<PostState[]>) {
+		return { ...state,  posts: action.payload, filtredPosts: action.payload };
+	  },
+	},
+});
+
+export const { setPostsData } = postsSlice.actions;

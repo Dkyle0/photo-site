@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { ROLE } from '../../../constants/role';
-import { setUser } from '../../actions';
 import { useResetForm } from '../../hooks';
 import { selectUserRole } from '../../selectors';
 import { request } from '../../utils';
 import styles from './authorization.module.css';
+import { setUser } from '../../store/reducers';
 
 const regFormSchema = yup.object().shape({
 	login: yup
