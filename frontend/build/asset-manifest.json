@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.95ed7dbd.css",
+    "main.js": "/static/js/main.9b78814a.js",
+    "static/media/fon.jpg": "/static/media/fon.e090d676080944a98bb0.jpg",
+    "static/media/landscape.jpg": "/static/media/landscape.a7fc0aa9b6a05adcb273.jpg",
+    "static/media/portrair.jpg": "/static/media/portrair.1fefcd169d949ba2c730.jpg",
+    "static/media/1.jpg": "/static/media/1.045054a3dc9932c0fb5b.jpg",
+    "static/media/2.jpg": "/static/media/2.b9168a7ce5e27ff3def4.jpg",
+    "static/media/3.jpg": "/static/media/3.b20099e6252784e122ad.jpg",
+    "static/media/street.jpg": "/static/media/street.8a336614a26fb0bdc74d.jpg",
+    "static/media/i.jpg": "/static/media/i.060cb5a98e6f025ac83d.jpg",
+    "static/media/Overpass-ExtraLight.ttf": "/static/media/Overpass-ExtraLight.592dc184e149ddf3055c.ttf",
+    "static/media/Rosarivo-Italic.ttf": "/static/media/Rosarivo-Italic.1d3af7134806383bcbb2.ttf",
+    "static/media/add-file-svgrepo-com.svg": "/static/media/add-file-svgrepo-com.9fb50de24eebcbe2d5e48a9fefdf54bd.svg",
+    "static/media/del-file-svgrepo-com.svg": "/static/media/del-file-svgrepo-com.d2217f6e2d74861811dc3546c0df0e4e.svg",
+    "static/media/file-svgrepo-com.svg": "/static/media/file-svgrepo-com.9705be30bfed11a667206655b0bb39fd.svg",
+    "static/media/dell-square-svgrepo-com.svg": "/static/media/dell-square-svgrepo-com.e0279230f8b5d48705fa6df170eb69f7.svg",
+    "static/media/favorite-off-svgrepo-com.svg": "/static/media/favorite-off-svgrepo-com.3d01228d13f8be23ef3cbb4627a26660.svg",
+    "static/media/send-svgrepo-com.svg": "/static/media/send-svgrepo-com.ae4b55577316c1cb3f6e8a6e0ca5d698.svg",
+    "static/media/user-svgrepo-com.svg": "/static/media/user-svgrepo-com.85a8aed6858d7e496a9ed063dac6810e.svg",
+    "static/media/favorite-svgrepo-com.svg": "/static/media/favorite-svgrepo-com.cff3a253a00a9a4ba8ec87d922df60b4.svg",
+    "index.html": "/index.html",
+    "main.95ed7dbd.css.map": "/static/css/main.95ed7dbd.css.map",
+    "main.9b78814a.js.map": "/static/js/main.9b78814a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95ed7dbd.css",
+    "static/js/main.9b78814a.js"
+  ]
+}

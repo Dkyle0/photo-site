@@ -1,0 +1,26 @@
+.logout {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 7vh;
+	left: 14vh;
+	border-radius: 5px;
+	padding-right: 3vh;
+	background-color: #a81b1b;
+	color: white;
+	border: none;
+	font-size: 1.5vw;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	transform: translateY(-50%);
+}
+
+.profileIcon {
+	height: 6vh;
+	width: 6vh;
+}
+
+.logout:hover {
+	background-color: #737373;
+}

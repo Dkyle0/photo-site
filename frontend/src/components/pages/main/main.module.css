@@ -1,0 +1,96 @@
+@font-face {
+	font-family: Overpass-name;
+	src: url(../../../fonts/Overpass/Overpass-ExtraLight.ttf);
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: Rosarivo-second;
+	src: url(../../../fonts/Rosarivo/Rosarivo-Italic.ttf);
+	font-weight: 400;
+}
+
+body {
+	overflow-x: hidden;
+	background-color: #f0f1ed;
+}
+
+.main {
+	font-size: 2vw;
+	color: white;
+}
+
+.container {
+	height: 100vh;
+	transform-style: preserve-3d;
+	position: absolute;
+	inset: 0;
+	will-change: transform;
+}
+
+.mainText {
+	font-family: 'Overpass-name', sans-serif;
+	font-weight: 200;
+	text-align: center;
+
+	@media (max-width: 800px) {
+		width: 100%;
+		font-size: 1em;
+	}
+}
+
+.secondText {
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	font-family: 'Rosarivo', serif;
+	font-weight: 400;
+
+	transform: translate(-50%, -50%) translateZ(90px);
+}
+
+.center {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1.5625em 6.25em;
+	min-height: 6.8em;
+	transform: translateZ(360px);
+
+	@media (max-width: 800px) {
+		flex-wrap: wrap;
+		padding: 0;
+	}
+}
+
+.overlay {
+	position: absolute;
+	inset: -2vw;
+	transform: translateZ(-100px);
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.backImg {
+	background-image: url(../../../imgs/fon.jpg);
+	position: absolute;
+	inset: -2vw;
+	background-size: cover;
+	background-position: center;
+	transform: translateZ(-100px);
+}
+
+.photoBlock {
+	position: relative;
+	top: 105vh;
+}
+
+.separation {
+	position: relative;
+	top: 105vh;
+	height: 2vw;
+	width: 100%;
+}

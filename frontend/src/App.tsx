@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Main } from './components/pages/main';
+import { Footer } from './components/footer';
+import { Route, Routes } from 'react-router-dom';
+import { Personal } from './components/pages/personal';
+import {
+	Authorization,
+	Registration,
+} from './components/pages/authorization-registration';
+import { Menu } from './components/menu';
+import { Portfolio } from './components/pages/portfolio';
+import { PortfolioPage } from './components/pages/portfolio/portfolio-page';
+import { Modal } from './components/modal';
+import { AboutMe } from './components/pages/about-me';
+import { Post } from './components/pages/posts/post';
+import { Posts } from './components/pages/posts/posts';
+import { Error } from './components/pages/error';
 
 export function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<>
+			<Menu />
+			<div>
+				<Routes>
+					<Route path="/" element={<Main />} />
+					<Route path="/personal" element={<Personal />} />
+					<Route path="/login" element={<Authorization />} />
+					<Route path="/register" element={<Registration />} />
+					<Route path="/portfolio" element={<Portfolio />} />
+					<Route path="/portfolio/portrait" element={<PortfolioPage />} />
+					<Route path="/portfolio/street" element={<PortfolioPage />} />
+					<Route path="/portfolio/landscape" element={<PortfolioPage />} />
+					<Route path="/posts/" element={<Posts />} />
+					<Route path="/post/" element={<Post />} />
+					<Route path="/post/:id" element={<Post />} />
+					<Route path="/post/:id/edit" element={<Post />} />
+					<Route path="/about" element={<AboutMe />} />
+					<Route
+						path="/*"
+						element={<Error title="Такая страница не найдена." />}
+					/>
+				</Routes>
+			</div>
+			<Footer />
+			<Modal />
+		</>
 	);
 }

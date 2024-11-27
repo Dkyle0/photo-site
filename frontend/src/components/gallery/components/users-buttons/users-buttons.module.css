@@ -1,0 +1,27 @@
+.dellIcon {
+	top: 1vh;
+	right: 1vh;
+}
+
+.likeIcon {
+	bottom: 1vh;
+	right: 1vh;
+	color: red;
+}
+
+.likeIcon,
+.dellIcon {
+	position: absolute;
+	width: 2vw;
+	height: 2vw;
+	background-color: white;
+	border-radius: 40%;
+	z-index: 1;
+	opacity: 0.7;
+	transition: opacity 0.3s ease;
+}
+
+.dellIcon:hover,
+.likeIcon:hover {
+	opacity: 1;
+}
